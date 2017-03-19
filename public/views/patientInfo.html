@@ -1,0 +1,90 @@
+<div>
+    <form name="userForm" ng-submit="vm.submitForm()" novalidate>
+        <div class="form-group"
+             ng-class="{ 'has-danger' : userForm.firstName.$invalid && !userForm.firstName.$pristine }">
+            <label for="firstNameLabel">First Name</label>
+            <input type="text" class="form-control" id="firstNameLabel" placeholder="Enter your first Name"
+                   name="firstName" ng-model="vm.user.firstName" ng-minlength="3" ng-maxlength="10"
+                   ng-pattern=/^[a-zA-Z]+$/ required>
+
+            <p ng-show="userForm.firstName.$error.pattern && !userForm.firstName.$pristine"
+               class='has-danger'>Invalid Name</p>
+            <p ng-show="userForm.firstName.$error.required && !userForm.firstName.$pristine"
+               class='has-danger'>First Name is required</p>
+            <p ng-show="userForm.firstName.$error.minlength" class='has-danger'>FirstName is too short.</p>
+            <p ng-show="userForm.firstName.$error.maxlength" class='has-danger'>FirstName is too long.</p>
+
+        </div>
+
+        <div class="form-group"
+             ng-class="{ 'has-danger' : userForm.lastName.$invalid && !userForm.lastName.$pristine }">
+            <label for="lastNameLabel">Last Name</label>
+            <input type="text" class="form-control" id="lastNameLabel" placeholder="Enter your last Name"
+                   name="lastName" ng-model="vm.user.lastName" ng-maxlength="10" ng-minlength="3"
+                   ng-pattern=/^[a-zA-Z]+$/ required>
+
+            <p ng-show="userForm.lastName.$error.pattern && !userForm.lastName.$pristine"
+               class='has-danger'>Invalid Name</p>
+            <p ng-show="userForm.lastName.$error.required && !userForm.lastName.$pristine"
+               class='has-danger'>Last Name is required</p>
+            <p ng-show="userForm.lastName.$error.minlength" class='has-danger'>LastName is too short.</p>
+            <p ng-show="userForm.lastName.$error.maxlength" class='has-danger'>LastName is too long.</p>
+
+        </div>
+
+
+        <div class="form-group" ng-class="{ 'has-danger' : userForm.dob.$invalid && !userForm.dob.$pristine }">
+            <label for="dateLabel">Date of Birth</label>
+            <input type="date" class="form-control" id="dateLabel" placeholder="Enter your date of birth"
+                   name="dob" ng-model="vm.user.dob" ng-change="vm.setAge()" dobasync required>
+            <p ng-show="userForm.dob.$error.dobasync">The value is not a valid dob!</p>
+            <p ng-show="userForm.dob.$error.required && !userForm.dob.$pristine"
+               class='has-danger'>DOB is required</p>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-danger' : userForm.age.$invalid && !userForm.age.$pristine }">
+            <label for="ageLabel">Age</label>
+            <input type="text" class="form-control" id="ageLabel" placeholder="Enter your age"
+                   name="age" ng-model="vm.user.age" ng-pattern=/[1-9][0-9]/ disabled>
+
+
+            <div class="form-group">
+                <label for="genderLabel">Selct your gender</label>
+                <select class="form-control" id="genderLabel" ng-model="vm.user.gender"
+                        ng-options="x for x in vm.gender"
+                        required>
+                    <!--<option>Male</option>-->
+                    <!--<option>Female</option>-->
+                </select>
+            </div>
+            <div class="form-group" ng-class="{ 'has-danger' : userForm.phone.$invalid && !userForm.phone.$pristine }">
+                <label for="phoneLabel">Phone Number</label>
+                <input type="number" class="form-control" id="phoneLabel" placeholder="Enter your phone number here"
+                       name="phone" ng-model="vm.user.phone" ng-minlength="10" ng-maxlength="10" required>
+
+                <p ng-show="!userForm.phone.$pristine && userForm.phone.$error.minlength"
+                   class="has-danger">Please enter a 10 digit number</p>
+                <p ng-show="!userForm.phone.$pristine && userForm.phone.$error.maxlength" class="has-danger">Please
+                    enter a
+                    10 digit number</p>
+                <p ng-show="userForm.phone.$error.required && !userForm.phone.$pristine"
+                   class='has-danger'>Phone Number is required</p>
+            </div>
+
+            <div class="form-group"
+                 ng-class="{ 'has-danger' : userForm.description.$invalid && !userForm.description.$pristine }">
+                <label for="textAreaLabel">Describe yourself in brief</label>
+            <textarea class="form-control" id="textAreaLabel" rows="3"
+                      placeholder="Write a line about yourself" name="description" ng-model="vm.user.description"
+                      ng-minlength="5" required></textarea>
+
+                <p ng-show="userForm.description.$error.required && !userForm.description.$pristine"
+                   class='has-danger'>Description is required</p>
+                <p ng-show="userForm.description.$error.minlength" class='has-danger'>Description is too short.</p>
+            </div>
+
+            <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Submit</button>
+            <button class="btn btn-primary" ui-sref="patients">All Patients</button>
+
+    </form>
+</div>

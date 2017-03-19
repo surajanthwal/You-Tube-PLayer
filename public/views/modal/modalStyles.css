@@ -1,0 +1,19 @@
+
+.width100 {
+    width: 100px;
+}
+
+.extremeRight {
+    float: right;
+}
+
+.mt30 {
+    margin-top: 30px;
+}
+
+.customButton{
+    width: 60px;
+    height: 30px;
+    padding: 3px;
+    margin-left: 0px;
+}

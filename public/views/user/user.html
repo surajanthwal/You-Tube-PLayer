@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="views/user/userStyles.css">
+<link rel="stylesheet" href="libs/ng-dialog/css/ngDialog.min.css">
+<link rel="stylesheet" href="libs/ng-dialog/css/ngDialog-theme-default.min.css">
+
+<div class="container-fluid mt50">
+    <div class="row">
+        <div class="col-md-3">
+            <H4 class="displayInline">My Library</H4>
+            <!--<button  ng-click="vm.clickToOpen()">-->
+            <img src="views/images/plusIcon.jpeg" ng-click="vm.clickToOpen()" class="customImage">
+            <!--</button>-->
+
+            <button type="button" class="btn btn-primary displayInline customButton1" ng-click="vm.playAllVideos()">Play
+                All
+            </button>
+            <ul class="list-group" id="listId">
+                <li class="list-group-item customList" ng-repeat="video in vm.videoList track by $index"
+                    ng-class="{ 'active': vm.video.url == video.url}" id="{{$index}}"
+                    ng-click="vm.playVideoByIndex($index)">
+                    {{video.title}}
+                    <!--&nbsp;-->
+                    <!--{{vm.video.url}}&nbsp;{{video.url}}-->
+
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-9" id="mainDiv">
+            <!--<iframe id="youTubePlayer"-->
+            <!--width="840" height="520"-->
+            <!--src="https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1"-->
+            <!--frameborder="0"-->
+            <!--style="border: solid 5px yellow"-->
+            <!--&gt;</iframe>-->
+
+            <!--<ng-youtube-embed-->
+            <!--id="playerId"-->
+            <!--video=vm.videoUrl-->
+            <!--autoplay="true"-->
+            <!--color="white"-->
+            <!--enablejsapi="true"-->
+            <!--disablekb="true"-->
+            <!--onready="playerReady"-->
+            <!--start={{vm.start}}-->
+            <!--end="90">-->
+            <!--</ng-youtube-embed>-->
+            <!--<iframe id="playerId"-->
+            <!--width="640" height="360"-->
+            <!--src="https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1"-->
+            <!--frameborder="0"-->
+            <!--style="border: solid 4px #37474F"-->
+            <!--&gt;</iframe>-->
+            <H4 id="captionId" class="hideElement pl130">Title:&nbsp;{{vm.video.title}} &nbsp;&nbsp;&nbsp;&nbsp; Views:&nbsp; {{vm.video.viewCount}}</H4>
+            <div id="playerId"></div>
+            <div id="buttonsDivId" class="hideElement">
+                <button type="button" id="previousButtonId" class="btn btn-primary displayInline customButton1"
+                        ng-click="vm.playPrevious()">Prev
+                </button>
+                <button type="button" id="nextButtonId" class="btn btn-primary displayInline customButton1"
+                        ng-click="vm.playNext()">Next
+                </button>
+            </div>
+            <div class="completionMessage">{{vm.completitionMessage}}</div>
+
+
+            <!--<p>{{vm.start}}</p>-->
+
+        </div>
+    </div>
+</div>
+

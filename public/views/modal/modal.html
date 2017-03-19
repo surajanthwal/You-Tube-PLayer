@@ -1,0 +1,42 @@
+
+<link rel="stylesheet" href="views/modal/modalStyles.css">
+
+<form class="form-horizontal">
+
+    <div class="form-group" >
+        <label for="urlId" class="col-sm-4 control-label">You Tube Url:</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="urlId" placeholder="Type url or video id here" ng-model="vm.video.url" required>
+        </div>
+    </div>
+
+    <div class="form-group" >
+        <label for="titleId" class="col-sm-4 control-label">Title:</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="titleId" placeholder="Type the title of video"  ng-model="vm.video.title" required>
+        </div>
+    </div>
+
+    <div class="form-group" >
+        <label for="startTimeId" class="col-sm-4 control-label">Start Time:</label>
+        <div class="col-sm-8">
+            <input type="number" class="form-control width100" id="startTimeId" ng-model="vm.video.startTime" required>
+        </div>
+    </div>
+
+    <div class="form-group" >
+        <label for="endTimeId" class="col-sm-4 control-label">End Time:</label>
+        <div class="col-sm-8">
+            <input type="number" class="form-control width100" id="endTimeId" ng-model="vm.video.endTime" required>
+        </div>
+    </div>
+
+
+
+    <div class="form-group" >
+        <div class="col-sm-offset-2 col-sm-10 mt30">
+            <button type="submit" class="btn btn-primary customButton" ng-click="vm.save()">Save</button>
+            <button class="btn btn-primary customButton" ng-click="vm.cancel()">Cancel</button>
+        </div>
+    </div>
+</form>
