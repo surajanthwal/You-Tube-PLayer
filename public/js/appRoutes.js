@@ -1,20 +1,6 @@
 // public/js/appRoutes.js
+//configuration module listing all states and state's variables
 angular.module('appRoutes', ['ui.router']).config(['$stateProvider', '$routeProvider', '$locationProvider', '$httpProvider', function ($stateProvider, $routeProvider, $locationProvider, $httpProvider) {
-
-    // $routeProvider
-    //
-    //     // home page
-    //     .when('/', {
-    //         templateUrl: 'views/home.html',
-    //         controller: 'MainController'
-    //     })
-    //
-    //     // nerds page that will use the NerdController
-    //     .when('/nerds', {
-    //         templateUrl: 'views/nerd.html',
-    //         controller: 'NerdController'
-    //     });
-
     $stateProvider
         .state('user', {
             url: '/',

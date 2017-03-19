@@ -1,13 +1,10 @@
 {
-  "name": "starter-node-angular",
+  "name": "youtube-player",
   "main": "server.js",
   "dependencies": {
     "body-parser": "~1.4.2",
     "express": "~4.14.0",
     "method-override": "~2.0.2",
     "mongoose": "~4.8.2",
-    "uuid": "^3.0.1",
-    "passport": "^0.2.2",
-    "passport-http-bearer": "^1.0.1"
   }
 }
