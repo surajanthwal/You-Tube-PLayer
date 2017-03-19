@@ -3,12 +3,17 @@
   - First clone the repository to your local machine.
   - Upon completion, go inside the cloned directory and run **node server.js**.
   - The command will start the server at port 8080. Open browser and hit at **http://localhost:8080/**.
+  - The login screen will come first. User is required to enter credentials. For the demo purpose user can enter anything, but it has to be valid.
+  - After clicking the login button, user is directed to home screen.
+   - The first step is to add a new video to playlist by clicking on plus sign and afterwards user can explore the entire functionality of homescreen.
+
 ## Player Features:
 - ### Login Screen:
   This is the first screen for the you tube player app. User is required to enter his/her credentials. For the demo purpose user can enter anything. Upon successfull login this screen will direct to home screen of user.
 - ### Home Screen:
   This is the screen which is displayed after login screen. It contains personalized content of user. The left panel is for displaying user library which contains multiple you tube videos.
   PlayAll button, Add new Video(plus sign) button and clickable video list comprises the left panel. The right side of screen is reserved for showing the current video which is being played.
+
   - #### PlayAll Button:
     Upon clicking this button,the videos are played sequentially in the current playlist, starting from the first video. The button is hidden and is visible only when library consists of atleast one video.
   - #### Add Video(Plus sign):
@@ -23,9 +28,12 @@
     The title and view Count is displayed on top of the playing video. This is a dynamic feature, whose value changes with the current video's title and view Count.
   - #### Completion Message
     Upon completing all the videos ,i.e, playing till the last video a completion message is shown to the user to notify him that the playlist has ended and he may restart the playlist again.
+
 ## Cases Covered:
    - The sequential playing of videos starting from the very first video being added.
    - The next video is played if current video ends, with the end time specified while enterring fieldvalues in modal popup.
    - The url field in modal popup accepts both url and video id.
    - Upon any video related error, the next video in the playlist is played immediately. 
    - Upon any errorneous entry in  modal popup, next video in playlist is played.
+   - Completion Message is shown if last song is ended and is hidden when playlist or any song is played again.
+   - View Count is coupled with video object, so its value will change dynamically when video is played. 
