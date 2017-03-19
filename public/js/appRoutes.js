@@ -2,8 +2,13 @@
 //configuration module listing all states and state's variables
 angular.module('appRoutes', ['ui.router']).config(['$stateProvider', '$routeProvider', '$locationProvider', '$httpProvider', function ($stateProvider, $routeProvider, $locationProvider, $httpProvider) {
     $stateProvider
+        .state('login',{
+            url:'/',
+            controller:'LoginController as vm',
+            templateUrl:'views/login/login.html'
+        })
         .state('user', {
-            url: '/',
+            url: '/home',
             controller: 'UserController as vm',
             templateUrl: 'views/user/user.html'
         })

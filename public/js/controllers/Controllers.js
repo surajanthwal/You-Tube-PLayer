@@ -1,7 +1,15 @@
 //MainCtrl module which contains all the controller for our app. 'ngDialogue' is a dependnecy for modal popup
 angular.module('MainCtrl', ['ngNotify', 'ngDialog'])
+//Controller for showing login screen and handling login related functionality
+//Just enter anything valid, and it will direct to home screen
+    .controller('LoginController', ['$scope', '$state', function ($scope, $state) {
+        var vm = this;
+        vm.login = function () {
+            $state.go("user");
+        }
+    }])
 
-//Controller for our default page as soon as user loggs in
+    //Controller for our default page as soon as user loggs in
     .controller('UserController', ['$scope', 'ngDialog', function ($scope, ngDialog) {
 
         //declaring all the controller variables
@@ -22,8 +30,8 @@ angular.module('MainCtrl', ['ngNotify', 'ngDialog'])
                 className: 'ngdialog-theme-default',
                 controller: 'ModalController',
                 controllerAs: 'vm',
-                height: 300,
-                width: 500
+                height: 320,
+                width: 600
             });
         };
 
@@ -35,6 +43,10 @@ angular.module('MainCtrl', ['ngNotify', 'ngDialog'])
                 videoObject.url = videoObject.url.substring(videoObject.url.indexOf("=") + 1);
             }
             vm.videoList.push(videoObject);
+            if (vm.videoList.length == 1) {
+                var playAllButton = document.getElementById("playAllButtonId");
+                playAllButton.classList.remove("hideElement");
+            }
         });
 
         //calling you tube iframe_api for loading appropriate library to be used afterwards in this controller
@@ -45,6 +57,7 @@ angular.module('MainCtrl', ['ngNotify', 'ngDialog'])
             tag.src = 'https://www.youtube.com/iframe_api';
             var firstScriptTag = document.getElementsByTagName('script')[0];
             firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            
         }
 
         //the function is a listener to 'Play All' button in user's home page
@@ -143,7 +156,6 @@ angular.module('MainCtrl', ['ngNotify', 'ngDialog'])
                 index = 0;
                 player.destroy();
                 player = null;
-                console.log(document.getElementById("playerId"));
                 var listItem = document.getElementById(vm.videoList.length - 1);
                 listItem.classList.remove("active");
                 vm.completitionMessage = "Your playlist is over. Please click on Play All button to restart the playlist";

@@ -1,0 +1,13 @@
+.mainDiv{
+    margin-top: 100px;
+    padding-left: 250px;
+}
+.customLabel{
+    font-weight: bolder;
+    font-size: larger;
+    width: 100px;
+}
+.customInput{
+    width: 400px;
+    margin-bottom: 5px;
+}

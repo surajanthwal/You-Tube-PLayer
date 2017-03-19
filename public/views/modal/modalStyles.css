@@ -3,6 +3,10 @@
     width: 100px;
 }
 
+.mb5{
+    margin-bottom: 5px;
+}
+
 .extremeRight {
     float: right;
 }
